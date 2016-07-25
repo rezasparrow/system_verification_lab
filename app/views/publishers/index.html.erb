@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_publisher_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Publisher
+  <% end %>
+  <h1>Listing publishers</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @publishers) do |publisher| %>
+            <td><%= publisher.name %></td>
+            <td><%= link_to 'Show', publisher %></td>
+        <td><%= link_to 'Edit', edit_publisher_path(publisher) %></td>
+        <td><%= link_to 'Destroy', publisher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

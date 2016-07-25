@@ -1,0 +1,32 @@
+<div class="page-header">
+  <%= link_to publications_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_publication_path(@publication), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show publication</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @publication.title %></dd>
+
+  <dt>Year:</dt>
+  <dd><%= @publication.year %></dd>
+
+  <dt>Publisher:</dt>
+  <dd><%= @publication.publisher %></dd>
+
+  <dt>Page:</dt>
+  <dd><%= @publication.page %></dd>
+
+  <dt>Volume:</dt>
+  <dd><%= @publication.volume %></dd>
+
+  <dt>Journal:</dt>
+  <dd><%= @publication.journal %></dd>
+
+</dl>
