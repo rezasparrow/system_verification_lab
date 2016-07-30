@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     # POST /projects
     # POST /projects.json
     def create
-        @project = Project.new(project_params, user_params)
+        @project = Project.create_with_user(project_params, user_params)
 
         respond_to do |format|
             if @project.save
@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
     # DELETE /projects/1
     # DELETE /projects/1.json
     def destroy
-        @project.destroy
+        @project.destroy_with_dependencies
         respond_to do |format|
             format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
             format.json { head :no_content }

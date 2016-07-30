@@ -11,47 +11,82 @@ class Project < ActiveRecord::Base
     has_many :people_projects
     has_many :users, through: :people_projects
 
-    def create(project_params, user_params)
-        Project.transaction do
-            PeopleProject.transaction do
+    def self.create_with_user(project_params, user_params)
+        project = Project.new(project_params)
+        begin
+            Project.transaction do
                 project = Project.create!(project_params)
-                user_params.each do |user_id|
-                    user = user.find_by_id(user_id)
-                    if (user.nil?)
-                        raise ActiveRecord::Rollback
+                PeopleProject.transaction do
+
+                    if (user_params.any?)
+                        user_params[:user_id].each do |user_id|
+                            user = User.find_by_id(user_id)
+                            if (user.nil?)
+                                ActiveRecord::Rollback
+                                flash[:notice] = "error in save data"
+                                return project
+                            end
+                            begin
+                                PeopleProject.create!([user_id: user.id, project_id: project.id])
+                            rescue
+                                project.errors.add(:notice, "Error in save data")
+                                ActiveRecord::Rollback
+                                return project
+                            end
+                        end
                     end
-                    PeopleProject.create!([user_id: user_id, project_id: project.id])
                 end
             end
+        rescue
+            ActiveRecord::Rollback
+            project.errors.add(:notice, "Error in save data")
+            return project
         end
+        return project
     end
 
     def update_with_user(project_params, user_params)
         Project.transaction do
             PeopleProject.transaction do
-                project = self.update(project_params)
+                self.update(project_params)
 
 
-                people_projects = PeopleProject.find_by(project_id: self.id)
+                people_projects = PeopleProject.where(project_id: self.id)
                 if not people_projects.nil?
-                    people_projects.destroy_all
+                    people_projects.delete_all
                 end
 
-                user_params[:user_id].each do |user_id|
-                    people_project = PeopleProject.find_by(user_id: user_id, project_id: self.id)
+                if (user_params.any?)
+                    user_params[:user_id].each do |user_id|
 
-                    # byebug
-                    user = User.find_by_id(user_id)
-                    if (not user.nil?)
-                        raise ActiveRecord::Rollback
+                        # byebug
+                        user = User.find_by_id(user_id)
+                        if (user.nil?)
+                            raise ActiveRecord::Rollback
+                        end
+                        PeopleProject.create!([user_id: user_id, project_id: self.id])
+                        # byebug
+
                     end
-                    PeopleProject.create!([user_id: user_id, project_id: self.id])
-                    # byebug
-
                 end
+
             end
         end
         # byebug
+    end
+
+    def destroy_with_dependencies
+        Project.transaction do
+            PeopleProject.transaction do
+
+                people_projects = PeopleProject.where(project_id: self.id)
+                if not people_projects.nil?
+                    people_projects.delete_all
+                end
+
+                self.update(project_params)
+            end
+        end
     end
 
     # private
@@ -62,4 +97,5 @@ class Project < ActiveRecord::Base
             errors.add(:end_time, "must be greater than start date")
         end
     end
+
 end

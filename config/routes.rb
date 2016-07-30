@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :people_projects
+  resources :user_publications
   resources :people_projects
   devise_for :users
   resources :people_projects
@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :sponsors
   resources :journals
-  resources :publishers
-  resources :publishers
   resources :news
   resources :news
     root "news#index"

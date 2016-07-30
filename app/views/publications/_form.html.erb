@@ -26,12 +26,6 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :publisher_id, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.select(:publisher_id, @publishers.map { |p| [p.name, p.id] }, {prompt: 'Select a Journal', class: 'form-control'}) %>
-      </div>
-    </div>
-    <div class="form-group">
       <%= f.label :page, class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
         <%= f.number_field :page, class: "form-control" %>
@@ -43,10 +37,23 @@
         <%= f.number_field :volume, class: "form-control" %>
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label"> users </label>
+      <div class="col-sm-10">
+        <select name="user[user_id][]" class="selectpicker form-control" multiple>
+          <% @users.each do |user| %>
+              <option value="<%= user.id %>"><%= user.email %></option>
+          <% end %>
+        </select>
+
+      </div>
+    </div>
+
     <div class="form-group">
       <%= f.label :journal_id, class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.select(:journal_id, @journals.map { |p| [p.name, p.id] }, {prompt: 'Select a Journal', class: 'form-control'}) %>
+        <%= f.select(:journal_id, @journals.map { |p| [p.name, p.id] },{prompt: 'Select a Journal'}, { class: 'form-control'}) %>
       </div>
     </div>
     <div class="form-group">
@@ -55,3 +62,18 @@
       </div>
     </div>
 <% end %>
+
+
+
+<script>
+  $(document).ready(function () {
+    <% @user_ids = [] %>
+    <%
+    @publication.users.each do |user|
+    @user_ids.push(user.id)
+    end
+    %>
+    $('.selectpicker').val(<%= @user_ids %>);
+    $('.selectpicker').selectpicker('refresh');
+  });
+</script>

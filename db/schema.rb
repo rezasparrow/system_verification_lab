@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409163517) do
+ActiveRecord::Schema.define(version: 20160730101603) do
 
   create_table "journals", force: :cascade do |t|
     t.string   "name"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20160409163517) do
   end
 
   add_index "sponsors", ["name"], name: "index_sponsors_on_name", unique: true
+
+  create_table "user_publications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "publication_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

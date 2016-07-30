@@ -24,9 +24,10 @@ RSpec.describe NewsController, type: :controller do
 
     describe "GET #index" do
         it "assigns all news as @news" do
-            news = News.create! valid_attributes
+            news1 = News.create! valid_attributes
+            news2 = News.create! Fabricate.attributes_for(:news)
             get :index, {}, valid_session
-            expect(assigns(:news)).to eq([news])
+            expect(assigns(:news)).to eq([news1 , news2])
         end
     end
 
@@ -47,9 +48,12 @@ RSpec.describe NewsController, type: :controller do
 
     describe "GET #edit" do
         it "assigns the requested news as @news" do
-            news = News.create! valid_attributes
+            news = News.create! Fabricate.attributes_for(:news , title: :"nooshin")
+            # news.title = "nooshin"
             get :edit, {:id => news.to_param}, valid_session
             expect(assigns(:news)).to eq(news)
+            assigns_news = assigns(:news)
+            expect(assigns(:news).title).to eq("nooshin")
         end
     end
 
@@ -79,6 +83,11 @@ RSpec.describe NewsController, type: :controller do
                 expect(assigns(:news)).to be_a_new(News)
             end
 
+            it "validate empty body " do
+                post :create, {:news => Fabricate.attributes_for(:news , body: nil)}, valid_session
+                expect(assigns(:news)).to be_a_new(News)
+            end
+
             it "re-renders the 'new' template" do
                 post :create, {:news => invalid_attributes}, valid_session
                 expect(response).to render_template("new")
@@ -92,6 +101,10 @@ RSpec.describe NewsController, type: :controller do
                 Fabricate.attributes_for(:news, title: "New news")
             }
 
+            let(:new_body_attributes){
+                Fabricate.attributes_for(:news, title: "My Body")
+            }
+
             let(:news){
                 Fabricate(:news)
             }
@@ -99,6 +112,12 @@ RSpec.describe NewsController, type: :controller do
                 put :update, {:id => news.id, :news => new_attributes}, valid_session
                 news.reload
                 expect(news.title).to eq("New news")
+            end
+
+            it "updates the body of news" do
+                put :update, {:id => news.id, :news => new_body_attributes}, valid_session
+                news.reload
+                expect(news.title).to eq("My Body")
             end
 
             it "assigns the requested news as @news" do
