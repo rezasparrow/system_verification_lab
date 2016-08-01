@@ -48,6 +48,9 @@
         <li>
           <%= link_to "Publications", publications_path, class: "navbar-brand" %>
         </li>
+        <li>
+          <%= link_to "Users", profiles_path, class: "navbar-brand" %>
+        </li>
 
         <% if user_signed_in? %>
             <li>  <%= link_to "Sign out", destroy_user_session_path, :method => 'delete', class: "navbar-brand"  %></li>
