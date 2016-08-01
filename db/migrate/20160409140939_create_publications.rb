@@ -3,7 +3,6 @@ class CreatePublications < ActiveRecord::Migration
     create_table :publications do |t|
       t.string :title
       t.integer :year
-      t.references :publisher, index: true, foreign_key: true
       t.integer :page
       t.integer :volume
       t.references :journal, index: true, foreign_key: true

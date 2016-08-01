@@ -3,18 +3,22 @@ require 'rails_helper'
 RSpec.describe UserPublicationsController, type: :controller do
 
 
+    let(:user) {Fabricate(:user)}
     let(:valid_attributes) {
         Fabricate.attributes_for(:user_publication)
     }
 
     let(:invalid_attributes) {
-        Fabricate.attributes_for(:user_publication, user: nil)
+        test = Fabricate(:user_publication)
+        Fabricate.attributes_for(:user_publication, user: test.user , publication: test.publication)
     }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
     # UserPublicationsController. Be sure to keep this updated too.
-    let(:valid_session) { {} }
+    let(:valid_session) {
+        sign_in :user , user
+    }
 
     describe "GET #index" do
         it "assigns all user_publications as @user_publications" do
@@ -82,15 +86,19 @@ RSpec.describe UserPublicationsController, type: :controller do
 
     describe "PUT #update" do
         context "with valid params" do
+            before do
+                valid_session
+            end
+            let(:new_user){Fabricate(:user)}
             let(:new_attributes) {
-                skip("Add a hash of attributes valid for your model")
+                Fabricate.attributes_for(:user_publication , user: new_user )
             }
 
             it "updates the requested user_publication" do
                 user_publication = UserPublication.create! valid_attributes
                 put :update, {:id => user_publication.to_param, :user_publication => new_attributes}, valid_session
                 user_publication.reload
-                skip("Add assertions for updated state")
+                expect(user_publication.user).to eq(new_user)
             end
 
             it "assigns the requested user_publication as @user_publication" do

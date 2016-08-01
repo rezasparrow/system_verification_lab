@@ -12,7 +12,6 @@
       <tr>
             <th>Title</th>
             <th>Year</th>
-            <th>Publisher</th>
             <th>Page</th>
             <th>Volume</th>
             <th>Journal</th>
@@ -26,10 +25,9 @@
       <%= content_tag_for(:tr, @publications) do |publication| %>
             <td><%= publication.title %></td>
             <td><%= publication.year %></td>
-            <td><%= publication.publisher %></td>
             <td><%= publication.page %></td>
             <td><%= publication.volume %></td>
-            <td><%= publication.journal %></td>
+            <td><%= publication.journal.name %></td>
             <td><%= link_to 'Show', publication %></td>
         <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
         <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>

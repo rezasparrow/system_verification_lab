@@ -5,6 +5,7 @@ RSpec.describe "projects/edit", type: :view do
     let(:user) {Fabricate(:user)}
     before(:each) do
 
+        assign(:users , [Fabricate(:user)])
         sign_in :user , user
 
         assign(:sponsors , [

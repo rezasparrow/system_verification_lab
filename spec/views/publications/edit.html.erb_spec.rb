@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "publications/edit", type: :view do
     before(:each) do
         assign(:journals, [Fabricate(:journal)])
-        assign(:publishers, [Fabricate(:publisher)])
+        assign(:users , [Fabricate(:user)])
         @publication = assign(:publication, Fabricate(:publication))
     end
 
@@ -15,8 +15,6 @@ RSpec.describe "publications/edit", type: :view do
             assert_select "input#publication_title[name=?]", "publication[title]"
 
             assert_select "input#publication_year[name=?]", "publication[year]"
-
-            assert_select "select#publication_publisher_id[name=?]", "publication[publisher_id]"
 
             assert_select "input#publication_page[name=?]", "publication[page]"
 

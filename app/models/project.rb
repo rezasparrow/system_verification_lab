@@ -4,7 +4,6 @@ class Project < ActiveRecord::Base
     validates :end_time, presence: true
     validates :sponsor_id, presence: true
     validates :goal, presence: true
-    validates :title, uniqueness: {case_sensitive: false}
     validate :end_time_validate
 
     belongs_to :sponsor
@@ -48,7 +47,10 @@ class Project < ActiveRecord::Base
     def update_with_user(project_params, user_params)
         Project.transaction do
             PeopleProject.transaction do
-                self.update(project_params)
+
+                if not self.update(project_params)
+                    return false
+                end
 
 
                 people_projects = PeopleProject.where(project_id: self.id)

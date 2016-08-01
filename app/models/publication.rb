@@ -1,7 +1,6 @@
 class Publication < ActiveRecord::Base
     validates :title, presence: true
     validates :year, presence: true
-    validates :publisher_id, presence: true
     validates :page, presence: true
     validates :volume, presence: true
     validates :journal_id, presence: true
@@ -54,7 +53,9 @@ class Publication < ActiveRecord::Base
         begin
             Publication.transaction do
                 UserPublication.transaction do
-                    self.update(publication_params)
+                    if not self.update(publication_params)
+                        return false
+                    end
 
 
                     user_publications = UserPublication.where(publication_id: self.id)
