@@ -11,6 +11,7 @@ class PublicationsController < ApplicationController
     # GET /publications/1
     # GET /publications/1.json
     def show
+        @profiles = @publication.users
     end
 
     # GET /publications/new

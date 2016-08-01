@@ -26,4 +26,10 @@
   <dt>Journal:</dt>
   <dd><%= @publication.journal.name %></dd>
 
+  <dt>Users:</dt>
+  <dd>
+    <% @profiles.each do |profile|%>
+        <%= link_to( profile.email, :controller => "profiles", :action => "show", :id => profile.id) %>
+    <%end%>
+  </dd>
 </dl>
