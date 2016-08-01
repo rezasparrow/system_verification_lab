@@ -44019,3 +44019,407 @@ Completed 200 OK in 118ms (Views: 116.0ms | ActiveRecord: 0.5ms)
 
 
 Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:09:46 +0430
+
+
+Started GET "/publications/1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+Processing by PublicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublication Load (0.1ms)[0m  [1mSELECT  "publications".* FROM "publications" WHERE "publications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mJournal Load (0.1ms)[0m  SELECT  "journals".* FROM "journals" WHERE "journals"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_publications" ON "users"."id" = "user_publications"."user_id" WHERE "user_publications"."publication_id" = ?[0m  [["publication_id", 1]]
+  Rendered publications/show.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-4f22ee513bff51c07ddbacea6716b3bb025259c40c0c44f68b3b024ed0ff7a2c.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery-ui/theme.self-df1da30301997b52795cb0213bccd335f2897b65f84d1d7d7c63c04f048d902f.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery-ui/core.self-23329dbe1961b938278306c019037fe36ff6ccb28193f1038e52ccbf52858163.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery-ui/datepicker.self-bf92a2196df590f06fad4ab5bb7ed4db1874a9bef0c9af85ea0490d2108b9966.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/rails_bootstrap_forms.self-10cb7d2aef696c4062f219f6678eed1d57c254a6717cea25d021726a4b9a214c.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap-select.self-6eda441512653f8097fabe871c0a836a3d2c803b57aaad77a2b3d2b89a9ee68e.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap-generators.self-cd8bc699ccb758ac8b845970e0f1311813ff6592ab469038e7fb8a19a431d985.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap-variables.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/custom.self-307ba3a36f4b99be56aa929abd43b03981d725924ea74ade338415dbdef272c5.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/news.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/scaffolds.self-7092d488bf7cc008996a4dea69a38d6f2e18f0a2f9616e3afaf7c60f865cf509.css?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery-ui/core.self-93be4d22eda916787802a64d8f88b52db8a9027d4ccbbc0942625324a7d12d44.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery-ui/datepicker.self-6267be6d4d0f0e8665be3b4d6ac07f40ba23a32aff8eaa5d1bfc00f76a9eeae7.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap-select.self-de88cf1fdcec077fb9e0c56b427be93ddab1e408ce060d106f3f807cbe2b9b10.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/journals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/news.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/people_projects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/profiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/projects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/publications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/sponsors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/user_publications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:11:59 +0430
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:12:00 +0430
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered profiles/index.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 68ms (Views: 67.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:12:00 +0430
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-02 04:12:03 +0430
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ko55GlNM2xNW5T2dNzVxfshEls51mHHfDjJMV10bYBXWmMuJa/8cRe/KnZ7Vwvc+xrL4PMDG2jSUMkqs/g4U3w=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-02 04:12:03 +0430
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (0.1ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 75ms (Views: 73.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:12:03 +0430
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-08-02 04:12:05 +0430
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 70ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:16:00 +0430
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered profiles/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 77ms (Views: 76.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:16:00 +0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-08-02 04:18:52 +0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mSponsor Load (0.1ms)[0m  [1mSELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered projects/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 382ms (Views: 377.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:18:53 +0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2016-08-02 04:18:55 +0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSponsor Load (0.0ms)[0m  [1mSELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "people_projects" ON "users"."id" = "people_projects"."user_id" WHERE "people_projects"."project_id" = ?  [["project_id", 1]]
+  Rendered projects/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 95ms (Views: 84.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:18:55 +0430
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:26:54 +0430
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered profiles/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 75ms (Views: 74.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:26:54 +0430
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:26:56 +0430
+Processing by ProfilesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered profiles/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 73ms (Views: 73.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:26:56 +0430
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2016-08-02 04:26:57 +0430
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "people_projects" ON "projects"."id" = "people_projects"."project_id" WHERE "people_projects"."user_id" = ?  [["user_id", 1]]
+  [1m[36mPublication Load (0.1ms)[0m  [1mSELECT "publications".* FROM "publications" INNER JOIN "user_publications" ON "publications"."id" = "user_publications"."publication_id" WHERE "user_publications"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered profiles/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 78ms (Views: 64.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:26:57 +0430
+
+
+Started GET "/publications/1" for 127.0.0.1 at 2016-08-02 04:26:59 +0430
+Processing by PublicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPublication Load (0.2ms)[0m  SELECT  "publications".* FROM "publications" WHERE "publications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mJournal Load (0.1ms)[0m  [1mSELECT  "journals".* FROM "journals" WHERE "journals"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_publications" ON "users"."id" = "user_publications"."user_id" WHERE "user_publications"."publication_id" = ?  [["publication_id", 1]]
+  Rendered publications/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 74ms (Views: 70.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:26:59 +0430
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-02 04:27:01 +0430
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (0.1ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 63ms (Views: 61.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:02 +0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-08-02 04:27:02 +0430
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mSponsor Load (0.1ms)[0m  [1mSELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered projects/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 59ms (Views: 59.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:02 +0430
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2016-08-02 04:27:03 +0430
+Processing by SponsorsController#index as HTML
+  [1m[35mSponsor Load (0.1ms)[0m  SELECT "sponsors".* FROM "sponsors"
+  Rendered sponsors/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 88ms (Views: 87.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:04 +0430
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-08-02 04:27:04 +0430
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (3.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 121ms (Views: 120.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:27:06 +0430
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered profiles/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 100ms (Views: 99.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:06 +0430
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2016-08-02 04:27:08 +0430
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "people_projects" ON "projects"."id" = "people_projects"."project_id" WHERE "people_projects"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mPublication Load (0.1ms)[0m  SELECT "publications".* FROM "publications" INNER JOIN "user_publications" ON "publications"."id" = "user_publications"."publication_id" WHERE "user_publications"."user_id" = ?  [["user_id", 1]]
+  Rendered profiles/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 64ms (Views: 62.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:08 +0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2016-08-02 04:27:10 +0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSponsor Load (0.0ms)[0m  SELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "people_projects" ON "users"."id" = "people_projects"."user_id" WHERE "people_projects"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered projects/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 66.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:10 +0430
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2016-08-02 04:27:11 +0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-02 04:27:11 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (4.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 80ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:27:20 +0430
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered profiles/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:20 +0430
+
+
+Started GET "/publications" for 127.0.0.1 at 2016-08-02 04:27:21 +0430
+Processing by PublicationsController#index as HTML
+  [1m[35mPublication Load (0.1ms)[0m  SELECT "publications".* FROM "publications"
+  [1m[36mJournal Load (0.0ms)[0m  [1mSELECT  "journals".* FROM "journals" WHERE "journals"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered publications/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 82ms (Views: 81.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:21 +0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-08-02 04:27:22 +0430
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mSponsor Load (0.1ms)[0m  [1mSELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered projects/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:23 +0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-08-02 04:27:23 +0430
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36mSponsor Load (0.0ms)[0m  [1mSELECT  "sponsors".* FROM "sponsors" WHERE "sponsors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered projects/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 71ms (Views: 70.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:23 +0430
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:27:24 +0430
+Processing by ProfilesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered profiles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:24 +0430
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2016-08-02 04:27:26 +0430
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "people_projects" ON "projects"."id" = "people_projects"."project_id" WHERE "people_projects"."user_id" = ?  [["user_id", 1]]
+  [1m[36mPublication Load (0.1ms)[0m  [1mSELECT "publications".* FROM "publications" INNER JOIN "user_publications" ON "publications"."id" = "user_publications"."publication_id" WHERE "user_publications"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered profiles/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:26 +0430
