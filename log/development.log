@@ -44423,3 +44423,10 @@ Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.3ms)
 
 
 Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for 127.0.0.1 at 2016-08-02 04:27:26 +0430
+
+
+Started GET "/profiles" for 127.0.0.1 at 2016-08-02 04:43:14 +0430
+Processing by ProfilesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered profiles/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 72ms (Views: 71.8ms | ActiveRecord: 0.1ms)
