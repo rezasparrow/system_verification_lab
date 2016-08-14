@@ -2,8 +2,9 @@ Rails.application.routes.draw do
     resources :profiles
     resources :user_publications
     resources :people_projects
-    devise_for :users do
+    devise_for :users , :controllers => {:registrations => "registrations"} do
         get '/users/sign_out' => 'devise/sessions#destroy'
+
     end
     resources :people_projects
     resources :publications

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814112408) do
+ActiveRecord::Schema.define(version: 20160814170017) do
 
   create_table "journals", force: :cascade do |t|
     t.string   "name"
@@ -54,24 +54,14 @@ ActiveRecord::Schema.define(version: 20160814112408) do
   create_table "publications", force: :cascade do |t|
     t.string   "title"
     t.integer  "year"
-    t.integer  "publisher_id"
     t.integer  "page"
     t.integer  "volume"
     t.integer  "journal_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "publications", ["journal_id"], name: "index_publications_on_journal_id"
-  add_index "publications", ["publisher_id"], name: "index_publications_on_publisher_id"
-
-  create_table "publishers", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "publishers", ["name"], name: "index_publishers_on_name", unique: true
+  add_index "publications", ["journal_id"], name: "index_publications_on_journal_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -100,7 +90,9 @@ ActiveRecord::Schema.define(version: 20160814112408) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "user_publications", ["publication_id"], name: "index_user_publications_on_publication_id"
   add_index "user_publications", ["user_id", "publication_id"], name: "index_user_publications_on_user_id_and_publication_id", unique: true
+  add_index "user_publications", ["user_id"], name: "index_user_publications_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -117,6 +109,10 @@ ActiveRecord::Schema.define(version: 20160814112408) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
