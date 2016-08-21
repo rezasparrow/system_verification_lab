@@ -68,11 +68,11 @@
                         <% if user_signed_in? %>
                             <div class="btn-group-img btn-group">
                                 <button data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="btn btn-sm dropdown-toggle" type="button" aria-expanded="false">
-                                    <span>Hi, Marcus</span>
+                                    <span>Hi, <%= current_user.first_name%></span>
                                     <img alt="" src="/assets/layouts/layout5/img/avatar1.jpg"></button>
                                 <ul role="menu" class="dropdown-menu-v2">
                                     <li>
-                                        <a href="page_user_profile_1.html">
+                                        <a href="/myProfile">
                                             <i class="icon-user"></i> My Profile
                                             <span class="badge badge-danger">1</span>
                                         </a>

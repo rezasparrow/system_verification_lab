@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+    get '/myProfile' => 'profiles#my_profile'
     resources :profiles
     resources :user_publications
     resources :people_projects

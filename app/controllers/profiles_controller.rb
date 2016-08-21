@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
     # GET /profiles
@@ -23,6 +24,12 @@ class ProfilesController < ApplicationController
     def edit
     end
 
+    # GET /myProfile
+    def my_profile
+        @profile = current_user
+        @projects = @profile.projects
+        @publications = @profile.publications
+    end
 
     private
     # Use callbacks to share common setup or constraints between actions.
