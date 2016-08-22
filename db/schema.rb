@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814170017) do
+ActiveRecord::Schema.define(version: 20160822214510) do
+
+  create_table "contexts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "location"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "contexts", ["name"], name: "index_contexts_on_name", unique: true
 
   create_table "journals", force: :cascade do |t|
     t.string   "name"
@@ -82,6 +93,16 @@ ActiveRecord::Schema.define(version: 20160814170017) do
   end
 
   add_index "sponsors", ["name"], name: "index_sponsors_on_name", unique: true
+
+  create_table "user_contexts", id: false, force: :cascade do |t|
+    t.string   "value"
+    t.integer  "context_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_contexts", ["user_id", "context_id"], name: "index_user_contexts_on_user_id_and_context_id"
 
   create_table "user_publications", force: :cascade do |t|
     t.integer  "user_id"

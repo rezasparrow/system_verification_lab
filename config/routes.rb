@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :user_contexts
+  resources :contexts
     get '/myProfile' => 'profiles#my_profile'
     resources :profiles
     resources :user_publications

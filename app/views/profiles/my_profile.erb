@@ -10,11 +10,11 @@
         <!-- SIDEBAR USERPIC -->
         <div class="profile-userpic">
           <% if not @profile.avatar.nil? %>
-              <img src="<%=@profile.avatar.url(:medium)%>" class="img-responsive" alt="">
+              <img src="<%= @profile.avatar.url(:medium) %>" class="img-responsive" alt="">
           <% else %>
               <img src="/no_avatar.jpg" class="img-responsive" alt="">
 
-        <% end %>
+          <% end %>
         </div>
 
         <!-- END SIDEBAR USERPIC -->
@@ -31,11 +31,11 @@
         <!-- STAT -->
         <div class="row list-separated profile-stat">
           <div class="col-md-4 col-sm-4 col-xs-6">
-            <div class="uppercase profile-stat-title"> <%=@projects.count%></div>
+            <div class="uppercase profile-stat-title"> <%= @projects.count %></div>
             <div class="uppercase profile-stat-text"> Projects</div>
           </div>
           <div class="col-md-4 col-sm-4 col-xs-6">
-            <div class="uppercase profile-stat-title"> <%=@publications.count%></div>
+            <div class="uppercase profile-stat-title"> <%= @publications.count %></div>
             <div class="uppercase profile-stat-text"> Publications</div>
           </div>
         </div>
@@ -221,9 +221,9 @@
                       </div>
                     </div>
                     <div class="timeline-body-content">
-                                                                <span class="font-grey-cascade"> Lorem ipsum dolore sit amet
-                                                                    <a href="javascript:;">Ispect</a>
-                                                                </span>
+                        <span class="font-grey-cascade"> Lorem ipsum dolore sit amet
+                            <a href="javascript:;">Ispect</a>
+                        </span>
                     </div>
                   </div>
                 </div>
