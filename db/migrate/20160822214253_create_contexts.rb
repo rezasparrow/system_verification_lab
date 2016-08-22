@@ -2,7 +2,7 @@ class CreateContexts < ActiveRecord::Migration
     def change
         create_table(:contexts) do |t|
             t.string :name
-            t.string :type
+            t.string :value_type
             t.string :location
             t.references :role
 
