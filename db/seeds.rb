@@ -22,8 +22,11 @@ teacher.add_role 'teacher'
 student.add_role 'student'
 guest.add_role 'guest'
 
-contexts = Context.create([{id: 1, name: 'web site', value_type: 'single_value', location: 'side' , role_id:2},
-                           {id:2 , name: 'skill' , value_type:'multi_value' , location:'main' , role_id:3}
-                          ])
+web_site = Context.create({id: 1, name: 'web site', value_type: 'single_value', location: 'side' , role_id:2})
+skill = Context.create({id:2 , name: 'skill' , value_type:'multi_value' , location:'main' , role_id:3})
+
+UserContext.create({user_id:teacher.id , value:'http://google.com' , context_id:web_site.id })
+UserContext.create({user_id:student.id , value:'c++' , context_id:skill.id })
+UserContext.create({user_id:student.id , value:'c#' , context_id:skill.id })
 
 

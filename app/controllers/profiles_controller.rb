@@ -29,6 +29,11 @@ class ProfilesController < ApplicationController
         @profile = current_user
         @projects = @profile.projects
         @publications = @profile.publications
+        roles = @profile.roles.order(priority: :asc)
+        @role = nil
+        if(roles.count > 0 )
+            @role = roles.first
+        end
     end
 
     private

@@ -1,3 +1,5 @@
+require "set"
+
 class User < ActiveRecord::Base
     # validates :avatar, presence: true
     validates :first_name, presence: true
@@ -18,10 +20,22 @@ class User < ActiveRecord::Base
     has_many :projects, through: :people_projects
     has_many :user_publications
     has_many :publications, through: :user_publications
-
+    has_many :user_contexts
 
     def full_name
         return first_name+ " " + last_name
+    end
+
+    def contexts
+        roles = self.roles
+        user_context = Set.new()
+        roles.each do |role|
+            contexts = role.contexts
+            contexts.each do |role_context|
+                user_context.add(role_context)
+            end
+        end
+        return user_context
     end
 
 end

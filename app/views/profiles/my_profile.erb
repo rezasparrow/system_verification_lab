@@ -21,7 +21,9 @@
         <!-- SIDEBAR USER TITLE -->
         <div class="profile-usertitle">
           <div class="profile-usertitle-name"> <%= @profile.full_name %></div>
-          <div class="profile-usertitle-job"> Developer</div>
+          <% if not @role.nil? %>
+              <div class="profile-usertitle-job"> <%= @role.name %></div>
+          <% end %>
         </div>
         <!-- END SIDEBAR USER TITLE -->
       </div>
