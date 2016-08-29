@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
 
-  resources :user_contexts
-  resources :contexts
     get '/myProfile' => 'profiles#my_profile'
     resources :profiles
     resources :user_publications
     resources :people_projects
-    devise_for :users , :controllers => {:registrations => "registrations"} do
+    devise_for :users, :controllers => {:registrations => "registrations"} do
         get '/users/sign_out' => 'devise/sessions#destroy'
 
     end
+
+    scope '/admin' do
+        get '/members' => 'admin#members' , :as => :admin_members
+        get '/edit_user/:id' => 'admin#edit_member' , :as => :admin_edit_member
+        resources :contexts
+    end
+
+    resources :user_contexts
+
     resources :people_projects
     resources :publications
     resources :projects
     resources :sponsors
     resources :journals
-    resources :news
     resources :news
     root "news#index"
 

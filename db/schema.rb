@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822223237) do
+ActiveRecord::Schema.define(version: 20160822235916) do
 
   create_table "contexts", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20160822223237) do
   end
 
   add_index "publications", ["journal_id"], name: "index_publications_on_journal_id"
+
+  create_table "role_contexts", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "context_id"
+  end
+
+  add_index "role_contexts", ["role_id", "context_id"], name: "index_role_contexts_on_role_id_and_context_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
