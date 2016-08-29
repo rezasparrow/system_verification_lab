@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
     rolify
     has_attached_file :avatar,
                       styles: {
-                          medium: "300x300>",
-                          thumb: "100x100>"}, default_url: "/images/:style/missing.jpg"
+                              medium: "300x300>",
+                              thumb: "100x100>"}, default_url: "/images/:style/missing.jpg"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
     # Include default devise modules. Others available are:
@@ -38,4 +38,17 @@ class User < ActiveRecord::Base
         return user_context
     end
 
+    def set_role(roles)
+        self.roles.each do |role|
+            if (roles[role.name].nil?)
+                self.remove_role role.name
+            end
+        end
+        roles.each do |key, value|
+            founded_role = Role.find_by_name(key)
+            if (not founded_role.nil?)
+                self.add_role key
+            end
+        end
+    end
 end

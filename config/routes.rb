@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     end
 
     scope '/admin' do
-        get '/members' => 'admin#members' , :as => :admin_members
-        get '/edit_user/:id' => 'admin#edit_member' , :as => :admin_edit_member
+        scope '/members' do
+            match '/update/:id', to: 'admin#update_member', :as => :admin_update_member, via: [:patch, :put, :post]
+            match '/edit/:id' => 'admin#edit_member', :as => :admin_edit_member, via: [:get]
+        end
+        match '/members' => 'admin#members', :as => :admin_members, via: [:get]
         resources :contexts
     end
 
