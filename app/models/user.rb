@@ -35,7 +35,16 @@ class User < ActiveRecord::Base
                 user_context.add(role_context)
             end
         end
-        return user_context
+        user_context_map = {}
+        user_context.each do |cont|
+            cont_name = cont.context.name
+            if (user_context_map[cont_name].nil?)
+                user_context_map[cont_name] =[]
+            else
+                user_context_map[cont_name] << cont
+            end
+        end
+        return user_context_map
     end
 
     def set_role(roles)

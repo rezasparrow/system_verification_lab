@@ -86,7 +86,7 @@ class Project < ActiveRecord::Base
                     people_projects.delete_all
                 end
 
-                self.update(project_params)
+                self.delete
             end
         end
     end

@@ -1,4 +1,8 @@
 <div class="row">
+    <%= link_to new_project_path, class: 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        New Journal
+    <% end %>
     <% @projects.each do |project| %>
         <div class="col-md-4">
             <!-- BEGIN Portlet PORTLET-->
